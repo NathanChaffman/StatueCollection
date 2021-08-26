@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StatueCollectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Statues">
+          <Key>
+            <PropertyRef Name="Statue Number" />
+          </Key>
+          <Property Name="Statue Number" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Character" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Scale" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Edition Size" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Owned" Type="bit" Nullable="false" />
+          <Property Name="Cape Style" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hair Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Height" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Width" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Depth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Weight" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Kit" Type="bit" Nullable="false" />
+          <Property Name="Order Number" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Order Date" Type="date" />
+          <Property Name="Retailer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Payment Length" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Payment Cost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Non Refundable Deposit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Paid" Type="bit" />
+          <Property Name="Quantity" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Number Of Boxes" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Exclusive" Type="bit" />
+          <Property Name="Material" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="StatueCollectionModelStoreContainer">
+          <EntitySet Name="Statues" EntityType="Self.Statues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StatueCollectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Statue">
+          <Key>
+            <PropertyRef Name="Statue_Number" />
+          </Key>
+          <Property Name="Statue_Number" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Character" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Scale" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Edition_Size" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Owned" Type="Boolean" Nullable="false" />
+          <Property Name="Cape_Style" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hair_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Height" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Width" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Depth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Kit" Type="Boolean" Nullable="false" />
+          <Property Name="Order_Number" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Order_Date" Type="DateTime" Precision="0" />
+          <Property Name="Retailer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Length" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Payment_Cost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Non_Refundable_Deposit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Paid" Type="Boolean" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Number_Of_Boxes" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Exclusive" Type="Boolean" />
+          <Property Name="Material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="StatueCollectionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Statues" EntityType="Self.Statue" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StatueCollectionModelStoreContainer" CdmEntityContainer="StatueCollectionEntities">
+          <EntitySetMapping Name="Statues">
+            <EntityTypeMapping TypeName="StatueCollectionModel.Statue">
+              <MappingFragment StoreEntitySet="Statues">
+                <ScalarProperty Name="Statue_Number" ColumnName="Statue Number" />
+                <ScalarProperty Name="Character" ColumnName="Character" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Scale" ColumnName="Scale" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Edition_Size" ColumnName="Edition Size" />
+                <ScalarProperty Name="Owned" ColumnName="Owned" />
+                <ScalarProperty Name="Cape_Style" ColumnName="Cape Style" />
+                <ScalarProperty Name="Hair_Type" ColumnName="Hair Type" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Kit" ColumnName="Kit" />
+                <ScalarProperty Name="Order_Number" ColumnName="Order Number" />
+                <ScalarProperty Name="Order_Date" ColumnName="Order Date" />
+                <ScalarProperty Name="Retailer" ColumnName="Retailer" />
+                <ScalarProperty Name="Payment_Length" ColumnName="Payment Length" />
+                <ScalarProperty Name="Payment_Cost" ColumnName="Payment Cost" />
+                <ScalarProperty Name="Non_Refundable_Deposit" ColumnName="Non Refundable Deposit" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Number_Of_Boxes" ColumnName="Number Of Boxes" />
+                <ScalarProperty Name="Exclusive" ColumnName="Exclusive" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="StatueCollectionModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
